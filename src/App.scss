@@ -1,0 +1,26 @@
+@import "./mainStyles.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+  background-color: $main-color + 40;
+  font-family: $default-font;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  font-size: 2rem;
+  max-width: 1000px;
+
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0 0 6px 0 #000;
+}
