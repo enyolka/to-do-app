@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../store/StoreProvider";
 
 const AddTask = () => {
-  return <div>dodaj task</div>;
+  const { date, isImportant, toggleImportanceState } = useContext(AppContext);
+
+  return (
+    <div>
+      {console.log(date)}
+      {console.log(isImportant)}
+      <p>Dodaj task </p>
+      <button onClick={toggleImportanceState}>Dodaj</button>
+    </div>
+  );
 };
 
 export default AddTask;
