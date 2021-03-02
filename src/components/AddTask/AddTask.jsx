@@ -25,7 +25,7 @@ const AddTask = () => {
       if (true) {
         setText("");
         setIsImportant(false);
-        setDate(this.minDate);
+        setDate(minDate);
       }
     } else {
       alert("Za krótka nazwa");
@@ -34,41 +34,47 @@ const AddTask = () => {
 
   return (
     <div className={style()}>
-      <form>
-        <div className={style("task")}>
-          <label> Zadanie: </label>
-          <input
-            type="text"
-            value={text}
-            onChange={handleTextChange}
-            placeholder="Dodaj nowe zadanie"
-          />
-        </div>
+      <div className={style("task")}>
+        <label className={style("label")}> Zadanie: </label>
+        <input
+          className={style("task-input")}
+          type="text"
+          value={text}
+          onChange={handleTextChange}
+          placeholder="Dodaj nowe zadanie"
+        />
+      </div>
 
-        <div className={style("checkbox")}>
-          <label> Ważne </label>
-          <input
-            type="checkbox"
-            value={isImportant}
-            onChange={handleImportanceChange}
-          />
-        </div>
+      <div className={style("date")}>
+        <label htmlFor="date" className={style("label")}>
+          {" "}
+          Czas wykonania{" "}
+        </label>
+        <input
+          className={style("date-input")}
+          type="date"
+          value={date}
+          min={minDate}
+          max={maxDate}
+          onChange={handleDateChange}
+        />
+      </div>
 
-        <div className={style("date")}>
-          <label htmlFor="date"> Czas wykonania </label>
-          <input
-            type="date"
-            value={date}
-            min={minDate}
-            max={maxDate}
-            onChange={handleDateChange}
-          />
-        </div>
+      <div className={style("checkbox")}>
+        <label className={style("label")}> Ważne </label>
+        <input
+          className={style("checkbox-box")}
+          type="checkbox"
+          value={isImportant}
+          onChange={handleImportanceChange}
+        />
+      </div>
 
-        <div className={style("btn")}>
-          <button onClick={handleAddClick}>Dodaj</button>
-        </div>
-      </form>
+      <div className={style("btn-box")}>
+        <button onClick={handleAddClick} className={style("btn")}>
+          Dodaj
+        </button>
+      </div>
     </div>
   );
 };
