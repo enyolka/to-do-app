@@ -1,0 +1,90 @@
+@import "../../mainStyles.scss";
+
+.add-task {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 20px 0 10px 0;
+  min-height: 150px;
+  max-height: 200px;
+  font-style: $special_font;
+
+  &__label {
+    color: $main-color - 130;
+  }
+
+  &__task {
+    height: 30px;
+  }
+
+  &__task-input {
+    width: 70%;
+    height: 25px;
+    border: solid 1px rgb(177, 177, 177);
+    border-radius: 4px;
+
+    &:hover {
+      border: 2px solid $main-color;
+      box-shadow: 0 0 4px 1px $main-color;
+    }
+
+    &:focus {
+      outline-color: $main-color - 20;
+    }
+  }
+
+  &__date {
+    height: 30px;
+  }
+
+  &__date-input {
+    border: solid 1px rgb(177, 177, 177);
+    border-radius: 4px;
+
+    &:hover {
+      border: 2px solid $main-color;
+      box-shadow: 0 0 4px 1px $main-color;
+    }
+
+    &:focus {
+      outline-color: $main-color - 20;
+    }
+  }
+
+  &__checkbox {
+  }
+
+  &__checkbox-box {
+    margin: 0 5px 0 5px;
+  }
+
+  &__btn-box {
+    margin-left: auto;
+  }
+
+  &__btn {
+    padding: 5px 20px;
+    background-color: white;
+    border: solid 2px rgb(146, 146, 146);
+    border-radius: 7px;
+    font-weight: 400;
+    transition: 0.3s;
+    font-weight: 600;
+    color: rgb(70, 70, 70);
+
+    &:hover {
+      border-color: rgb(255, 201, 52);
+      background-color: rgb(255, 201, 52);
+      color: white;
+      text-shadow: 0 1px 2px rgb(0, 0, 0);
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
