@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import bemCssModules from "bem-css-modules";
 
-// import { TaskContext } from "../../store/StoreProvider";
+import { AppContext } from "../../store/StoreProvider";
 
 import { default as AddTaskStyles } from "./AddTask.module.scss";
 
@@ -10,6 +10,8 @@ const style = bemCssModules(AddTaskStyles);
 const AddTask = () => {
   const minDate = new Date().toISOString().slice(0, 10);
   const maxDate = new Date().toISOString().slice(0, 4) * 1 + 1 + "-12-31";
+
+  const { tasks, setTasks } = useContext(AppContext);
 
   const [text, setText] = useState("");
   const [isImportant, setIsImportant] = useState(false);
@@ -21,8 +23,22 @@ const AddTask = () => {
   const handleDateChange = (e) => setDate(e.target.value);
 
   const handleAddClick = (e) => {
+    const counter =
+      tasks.reduce(function (prev, current) {
+        return prev.id > current.id ? prev : current;
+      }).id + 1;
+
+    const newTask = {
+      id: counter,
+      text: text,
+      date: date,
+      important: isImportant,
+      active: true,
+      finishDate: null,
+    };
+
     if (text.length > 2) {
-      if (true) {
+      if (setTasks([...tasks, newTask])) {
         setText("");
         setIsImportant(false);
         setDate(minDate);
