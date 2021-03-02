@@ -26,7 +26,7 @@ const Task = ({ task }) => {
   };
 
   const finishSpan = task.finishDate ? (
-    <span>
+    <span className={style("end-date")}>
       Zadanie zakończone: {new Date(task.finishDate).toLocaleString()}
     </span>
   ) : null;
@@ -35,23 +35,24 @@ const Task = ({ task }) => {
     <button className={style("done-btn")} onClick={() => finishTask(task.id)}>
       Zakończ
     </button>
-  ) : (
-    finishSpan
-  );
+  ) : null;
+
+  const importantStyle = task.important ? style() : style("important");
 
   return (
-    <li className={style()}>
-      <p className={task.important ? style("text--important") : style("text")}>
-        {task.text}
-      </p>
+    <li className={importantStyle}>
+      <p className={style("text")}>{task.text}</p>
       <span className={style("date")}>{task.date}</span>
-      {doneBtn}
-      <button
-        className={style("delete-btn")}
-        onClick={() => deleteTask(task.id)}
-      >
-        X
-      </button>
+      <div className={style("btns")}>
+        {finishSpan}
+        {doneBtn}
+        <button
+          className={style("delete-btn")}
+          onClick={() => deleteTask(task.id)}
+        >
+          x
+        </button>
+      </div>
     </li>
   );
 };
