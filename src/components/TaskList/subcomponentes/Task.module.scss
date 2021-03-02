@@ -1,0 +1,70 @@
+@import "../../../mainStyles.scss";
+
+@mixin box($border-weight: 2px, $color: $main-color) {
+  margin: 3px;
+  padding: 3px 5px 3px 20px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  border: $border-weight solid $color;
+}
+
+@mixin btn($color: white, $border-color: rgb(121, 121, 121)) {
+  height: 25px;
+  margin: 3px;
+  padding: 3px 5px 3px 5px;
+  border-radius: 3px;
+  background-color: $color;
+  border: 0.16rem solid $border-color;
+}
+
+.task {
+  @include box($color: $main-color - 10);
+
+  &__important {
+    @include box(3px, $main-color - 70);
+  }
+
+  &__text {
+    margin: 5px 0px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    border-bottom: 1px solid $main-color - 10;
+  }
+
+  &__date {
+    font-size: 10px;
+    margin: 3px 0px;
+  }
+
+  &__end-date {
+    font-size: 10px;
+    margin: 3px 0px;
+    margin-right: auto;
+  }
+
+  &__btns {
+    display: flex;
+    flex-wrap: row;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  &__done-btn {
+    @include btn();
+
+    &:hover {
+      @include hover-btn();
+    }
+  }
+
+  &__delete-btn {
+    @include btn(rgb(231, 97, 97), rgb(153, 42, 42));
+    color: white;
+    width: 25px;
+
+    &:hover {
+      background-color: rgb(194, 0, 0);
+      text-shadow: 0 1px 2px rgb(0, 0, 0);
+    }
+  }
+}
