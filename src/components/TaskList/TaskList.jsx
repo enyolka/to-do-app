@@ -1,5 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import bemCssModules from "bem-css-modules";
+import {
+  FaRegArrowAltCircleLeft,
+  FaRegArrowAltCircleRight,
+} from "react-icons/fa";
 
 import { AppContext } from "../../store/StoreProvider";
 import Task from "./subcomponentes/Task";
@@ -10,6 +14,8 @@ const style = bemCssModules(TaskListStyles);
 
 const TaskList = () => {
   const { tasks } = useContext(AppContext);
+
+  const [showDiv, setShowDiv] = useState(false);
 
   const activeTasks = tasks.filter((task) => task.active);
   activeTasks.sort((a, b) => {
@@ -30,16 +36,41 @@ const TaskList = () => {
     <Task key={task.id} task={task} />
   ));
 
+  const hideDiv = () => setShowDiv((prev) => !prev);
+
+  const finishedDiv = (
+    <div className={style("finished")}>
+      <h2 className={style("tasks-title")}>
+        <button className={style("hide-btn")} onClick={hideDiv}>
+          <FaRegArrowAltCircleRight />
+        </button>
+        Zakończone zadania
+      </h2>
+      <ul className={style("tasks-list")}>{finishedTasksList}</ul>
+    </div>
+  );
+
   return (
     <div className={style()}>
-      <div className={style("active")}>
+      <div className={showDiv ? style("active") : style("active-full")}>
         <h2 className={style("tasks-title")}>Zadania do wykonania</h2>
         <ul className={style("tasks-list")}>{activeTasksList}</ul>
       </div>
-      <div className={style("finished")}>
-        <h2 className={style("tasks-title")}>Zadania wykonane</h2>
-        <ul className={style("tasks-list")}>{finishedTasksList}</ul>
-      </div>
+      {showDiv ? (
+        finishedDiv
+      ) : (
+        <button className={style("hide-btn")} onClick={hideDiv}>
+          <FaRegArrowAltCircleLeft />{" "}
+          <p
+            style={{
+              textOrientation: "mixed",
+              writingMode: "vertical-rl",
+            }}
+          >
+            Zakończone
+          </p>
+        </button>
+      )}
     </div>
   );
 };

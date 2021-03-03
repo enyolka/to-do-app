@@ -1,8 +1,8 @@
 @import "../../../mainStyles.scss";
 
 @mixin box($border-weight: 2px, $color: $main-color) {
-  margin: 3px;
-  padding: 3px 5px 3px 20px;
+  margin: 3px 0;
+  padding: 3px 5px 3px 10px;
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
   border: $border-weight solid $color;
