@@ -16,11 +16,13 @@ const AddTask = () => {
   const [text, setText] = useState("");
   const [isImportant, setIsImportant] = useState(false);
   const [date, setDate] = useState(minDate);
+  const [time, setTime] = useState("12:00");
   //  const { date, isImportant, toggleImportanceState } = useContext(TaskContext);
 
   const handleTextChange = (e) => setText(e.target.value);
   const handleImportanceChange = (e) => setIsImportant(e.target.checked);
   const handleDateChange = (e) => setDate(e.target.value);
+  const handleTimeChange = (e) => setTime(e.target.value);
 
   const handleAddClick = (e) => {
     const counter =
@@ -32,6 +34,7 @@ const AddTask = () => {
       id: counter,
       text: text,
       date: date,
+      time: time,
       important: isImportant,
       active: true,
       finishDate: null,
@@ -61,18 +64,25 @@ const AddTask = () => {
         />
       </div>
 
-      <div className={style("date")}>
+      <div className={style("date-time")}>
         <label htmlFor="date" className={style("label")}>
           {" "}
-          Czas wykonania{" "}
+          Data{" "}
         </label>
         <input
-          className={style("date-input")}
+          className={style("input")}
           type="date"
           value={date}
           min={minDate}
           max={maxDate}
           onChange={handleDateChange}
+        />
+        <label className={style("label")}>Godzina</label>
+        <input
+          className={style("input")}
+          type="time"
+          value={time}
+          onChange={handleTimeChange}
         />
       </div>
 

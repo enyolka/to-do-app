@@ -6,20 +6,28 @@
   flex-basis: 100%;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  min-height: 180px;
+  max-height: 200px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  @media (max-width: 520px) {
+    min-height: 80px;
+    max-height: 100px;
+    padding-top: 10px;
+  }
+
   font-family: $special-font;
   letter-spacing: 0.4rem;
 
   background-color: $main-color;
 
   &__title {
-    margin-top: 70px;
     width: 100%;
     text-align: center;
     color: $main-color - 90;
 
     &--small {
-      margin-bottom: 30px;
       font-size: 1.4rem;
       color: $main-color - 70;
     }

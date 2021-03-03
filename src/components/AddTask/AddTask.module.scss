@@ -1,5 +1,20 @@
 @import "../../mainStyles.scss";
 
+@mixin input {
+  border: solid 1px rgb(177, 177, 177);
+  border-radius: 4px;
+  margin: 0 4px 0 4px;
+
+  &:hover {
+    border: 2px solid $main-color;
+    box-shadow: 0 0 4px 1px $main-color;
+  }
+
+  &:focus {
+    outline-color: $main-color - 20;
+  }
+}
+
 .add-task {
   display: flex;
   flex-wrap: wrap;
@@ -8,8 +23,8 @@
   justify-content: space-between;
   flex-direction: column;
   margin: 20px 0 10px 0;
-  min-height: 150px;
-  max-height: 200px;
+  min-height: 120px;
+  max-height: 250px;
   font-style: $special_font;
 
   &__label {
@@ -17,44 +32,25 @@
   }
 
   &__task {
-    height: 30px;
+    height: 35px;
   }
 
   &__task-input {
     width: 70%;
     height: 25px;
-    border: solid 1px rgb(177, 177, 177);
-    border-radius: 4px;
-
-    &:hover {
-      border: 2px solid $main-color;
-      box-shadow: 0 0 4px 1px $main-color;
-    }
-
-    &:focus {
-      outline-color: $main-color - 20;
-    }
+    @include input();
   }
 
-  &__date {
-    height: 30px;
+  &__date-time {
+    height: 35px;
   }
 
-  &__date-input {
-    border: solid 1px rgb(177, 177, 177);
-    border-radius: 4px;
-
-    &:hover {
-      border: 2px solid $main-color;
-      box-shadow: 0 0 4px 1px $main-color;
-    }
-
-    &:focus {
-      outline-color: $main-color - 20;
-    }
+  &__input {
+    @include input();
   }
 
   &__checkbox {
+    height: 35px;
   }
 
   &__checkbox-box {

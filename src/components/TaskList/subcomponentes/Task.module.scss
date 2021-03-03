@@ -31,9 +31,25 @@
     border-bottom: 1px solid $main-color - 10;
   }
 
+  &__calendar-icon {
+    font-size: 12px;
+  }
+
   &__date {
+    font-size: 11px;
+    margin: 5px;
+    font-weight: 600;
+  }
+
+  &__clock-icon {
+    margin-left: 15px;
+    font-size: 12px;
+  }
+
+  &__time {
     font-size: 10px;
-    margin: 3px 0px;
+    margin: 5px;
+    font-style: italic;
   }
 
   &__end-date {

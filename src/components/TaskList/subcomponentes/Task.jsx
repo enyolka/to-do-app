@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import bemCssModules from "bem-css-modules";
+import { FaRegCalendarAlt, FaRegClock } from "react-icons/fa";
 
 import { AppContext } from "../../../store/StoreProvider";
 
@@ -42,7 +43,10 @@ const Task = ({ task }) => {
   return (
     <li className={importantStyle}>
       <p className={style("text")}>{task.text}</p>
+      <FaRegCalendarAlt className={style("calendar-icon")} />
       <span className={style("date")}>{task.date}</span>
+      <FaRegClock className={style("clock-icon")} />
+      <span className={style("time")}>{task.time}</span>
       <div className={style("btns")}>
         {finishSpan}
         {doneBtn}
