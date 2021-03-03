@@ -87,7 +87,7 @@ const AddTask = ({ handleOnClose, isModalOpen }) => {
         </div>
 
         <div className={style("date-time")}>
-          <div className={style("date")}>
+          <div>
             <label htmlFor="date" className={style("label")}>
               {" "}
               Data{" "}
@@ -101,7 +101,7 @@ const AddTask = ({ handleOnClose, isModalOpen }) => {
               onChange={handleDateChange}
             />
           </div>
-          <div className={style("time")}>
+          <div>
             <label className={style("label")}>Godzina</label>
             <input
               className={style("input")}

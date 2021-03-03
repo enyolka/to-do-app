@@ -40,27 +40,38 @@
   }
 
   &__task-input {
-    width: 70%;
+    width: 82%;
     height: 25px;
     @include input();
+
+    @media (max-width: 350px) {
+      width: 70%;
+    }
   }
 
   &__date-time {
+    display: flex;
+    flex-direction: row;
     height: 35px;
     @media (max-width: 350px) {
+      flex-direction: column;
       height: 70px;
+      margin-top: 5px;
     }
   }
 
   &__input {
     @include input();
     @media (max-width: 350px) {
-      margin: 10px 90px 0 4px;
+      margin-top: 7px;
     }
   }
 
   &__checkbox {
     height: 35px;
+    @media (max-width: 350px) {
+      margin-top: 7px;
+    }
   }
 
   &__checkbox-box {

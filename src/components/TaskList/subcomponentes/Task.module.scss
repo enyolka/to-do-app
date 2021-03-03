@@ -31,7 +31,8 @@
     border-bottom: 1px solid $main-color - 10;
   }
 
-  &__calendar-icon {
+  &__icon {
+    margin: 0 5px -1px 0;
     font-size: 12px;
   }
 
@@ -41,14 +42,9 @@
     font-weight: 600;
   }
 
-  &__clock-icon {
-    margin-left: 15px;
-    font-size: 12px;
-  }
-
   &__time {
     font-size: 10px;
-    margin: 5px;
+    margin: 0 20px 50px 10px;
     font-style: italic;
   }
 

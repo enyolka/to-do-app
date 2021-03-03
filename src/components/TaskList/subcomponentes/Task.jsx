@@ -38,15 +38,19 @@ const Task = ({ task }) => {
     </button>
   ) : null;
 
-  const importantStyle = task.important ? style() : style("important");
+  const importantStyle = task.important ? style("important") : style();
 
   return (
     <li className={importantStyle}>
       <p className={style("text")}>{task.text}</p>
-      <FaRegCalendarAlt className={style("calendar-icon")} />
-      <span className={style("date")}>{task.date}</span>
-      <FaRegClock className={style("clock-icon")} />
-      <span className={style("time")}>{task.time}</span>
+      <span className={style("date")}>
+        <FaRegCalendarAlt className={style("icon")} />
+        {task.date}
+      </span>
+      <span className={style("time")}>
+        <FaRegClock className={style("icon")} />
+        {task.time}
+      </span>
       <div className={style("btns")}>
         {finishSpan}
         {doneBtn}
