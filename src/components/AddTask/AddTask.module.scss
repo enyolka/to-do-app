@@ -27,6 +27,10 @@
   max-height: 250px;
   font-style: $special_font;
 
+  @media (max-width: 350px) {
+    margin: 0;
+  }
+
   &__label {
     color: $main-color - 130;
   }
@@ -43,10 +47,16 @@
 
   &__date-time {
     height: 35px;
+    @media (max-width: 350px) {
+      height: 70px;
+    }
   }
 
   &__input {
     @include input();
+    @media (max-width: 350px) {
+      margin: 10px 90px 0 4px;
+    }
   }
 
   &__checkbox {

@@ -1,0 +1,16 @@
+@import "../../mainStyles.scss";
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px;
+  border: 3px solid $main-color - 50;
+  border-radius: 8px;
+  // z-index: 100;
+
+  &::backdrop {
+    backdrop-filter: blur(1px);
+  }
+}
